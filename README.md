@@ -1,3 +1,5 @@
+![preview](.github/images/preview.png)
+
 # Rust MIDI Chart Reader 
 
 A simple MIDI chart reader/transformer to YARG Lanes written in Rust.
