@@ -5,6 +5,8 @@ pub use app::App;
 
 pub mod app;
 mod note;
+mod draw;
+mod lanes;
 
 fn main() -> color_eyre::Result<()> {
     print!("\x1B[2J\x1B[1;1H");
