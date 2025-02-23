@@ -1,12 +1,12 @@
-use std::io::stdout;
+pub use app::App;
 use crossterm::event::EnableMouseCapture;
 use crossterm::execute;
-pub use app::App;
+use std::io::stdout;
 
 pub mod app;
-mod note;
 mod draw;
 mod lanes;
+mod note;
 
 fn main() -> color_eyre::Result<()> {
     print!("\x1B[2J\x1B[1;1H");

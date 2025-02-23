@@ -1,10 +1,7 @@
-use crate::note::{get_notes, Lane};
+use crate::draw::draw_lanes;
 use color_eyre::Result;
 use crossterm::event::{self, Event, KeyCode, KeyEvent, KeyEventKind, KeyModifiers};
-use ratatui::prelude::Color;
-use ratatui::widgets::canvas::{Canvas, Circle, Context, Line};
-use ratatui::{widgets::Block, DefaultTerminal, Frame};
-use crate::draw::draw_lanes;
+use ratatui::{DefaultTerminal, Frame};
 
 #[derive(Debug, Default)]
 pub struct App {
@@ -81,15 +78,13 @@ impl App {
     fn on_key_event(&mut self, key: KeyEvent) {
         match (key.modifiers, key.code) {
             (_, KeyCode::Char('d')) => {
-
-                if self.time >= 0  {
+                if self.time >= 0 {
                     self.time += 1;
                     self.should_draw = true;
                 }
             }
             (_, KeyCode::Char('f')) => {
-
-                if self.time > 0  {
+                if self.time > 0 {
                     self.time -= 1;
                     self.should_draw = true;
                 }
@@ -131,4 +126,3 @@ impl App {
         self.running = false;
     }
 }
-

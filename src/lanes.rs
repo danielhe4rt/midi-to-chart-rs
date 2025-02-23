@@ -1,7 +1,6 @@
-use ratatui::prelude::Color;
-use ratatui::widgets::canvas::{Circle, Context, Line, Map, Painter, Shape};
-use crate::App;
 use crate::note::{Lane, Note};
+use ratatui::prelude::Color;
+use ratatui::widgets::canvas::{Circle, Context, Line, Shape};
 
 pub struct Lanes {
     pub lanes_count: i32,
@@ -33,8 +32,7 @@ impl Lanes {
 
         ctx.layer();
         for lane_spacing in (0..self.height).step_by(base_lane_height as usize) {
-            let line_width =
-                base_lane_note_x + (base_lane_count as f64 * self.width as f64 / 10.0);
+            let line_width = base_lane_note_x + (base_lane_count as f64 * self.width as f64 / 10.0);
 
             // Draw Lanes
             ctx.draw(&Line::new(
@@ -57,11 +55,12 @@ impl Lanes {
             }
             ctx.draw(&Circle {
                 x: note_lane + (base_lane_note_x / base_lane_count as f64) - self.speed,
-                y: (note.time as f64 * base_lane_height ) - (2.5) - (self.time as f64 * base_lane_spacing ),
+                y: (note.time as f64 * base_lane_height)
+                    - (2.5)
+                    - (self.time as f64 * base_lane_spacing),
                 radius: 1.0,
                 color: note.lane.get_color(),
             });
         }
     }
 }
-

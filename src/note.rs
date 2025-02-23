@@ -37,8 +37,6 @@ pub struct Note {
 }
 
 pub fn get_notes() -> Vec<Note> {
-
-
     vec![
         Note {
             lane: Lane::Green,
@@ -100,6 +98,5 @@ pub fn get_notes() -> Vec<Note> {
             lane: Lane::Orange,
             time: 15.0,
         },
-
     ]
 }

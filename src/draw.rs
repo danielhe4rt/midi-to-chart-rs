@@ -29,10 +29,9 @@ pub fn draw_lanes(app: &mut App, frame: &mut Frame) {
                 speed: app.speed,
                 width,
                 height,
-                notes: notes.clone()
+                notes: notes.clone(),
             };
             lane.draw(ctx);
-
         });
 
     frame.render_widget(canvas, frame.area());
