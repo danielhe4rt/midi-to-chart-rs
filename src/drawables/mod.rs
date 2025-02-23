@@ -1,9 +1,11 @@
-use crate::lanes::Lanes;
+mod lanes;
+
 use crate::note::get_notes;
 use crate::App;
 use ratatui::widgets::canvas::Canvas;
 use ratatui::widgets::Block;
 use ratatui::Frame;
+use crate::drawables::lanes::Lanes;
 
 pub fn draw_lanes(app: &mut App, frame: &mut Frame) {
     // Get the size of the frame

@@ -1,7 +1,7 @@
-use crate::draw::draw_lanes;
 use color_eyre::Result;
 use crossterm::event::{self, Event, KeyCode, KeyEvent, KeyEventKind, KeyModifiers};
 use ratatui::{DefaultTerminal, Frame};
+use crate::drawables::draw_lanes;
 
 #[derive(Debug, Default)]
 pub struct App {
@@ -14,6 +14,7 @@ pub struct App {
     pub lanes_count: i32,
     pub time: i32,
 }
+
 
 impl App {
     /// Construct a new instance of [`App`].
@@ -47,8 +48,6 @@ impl App {
     /// Renders the user interface.
     ///
     /// This is where you add new widgets. See the following resources for more information:
-    /// - <https://docs.rs/ratatui/latest/ratatui/widgets/index.html>
-    /// - <https://github.com/ratatui/ratatui/tree/master/examples>
     fn draw(&mut self, frame: &mut Frame) {
         // Drawing State manager = DON'T RETURN ANYTHING, JUST LET IT DRAW
         draw_lanes(self, frame);

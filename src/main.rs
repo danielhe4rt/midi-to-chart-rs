@@ -4,9 +4,8 @@ use crossterm::execute;
 use std::io::stdout;
 
 pub mod app;
-mod draw;
-mod lanes;
 mod note;
+mod drawables;
 
 fn main() -> color_eyre::Result<()> {
     print!("\x1B[2J\x1B[1;1H");
@@ -15,5 +14,6 @@ fn main() -> color_eyre::Result<()> {
     let terminal = ratatui::init();
     let result = App::new().run(terminal);
     ratatui::restore();
+    print!("\x1B[2J\x1B[1;1H");
     result
 }
